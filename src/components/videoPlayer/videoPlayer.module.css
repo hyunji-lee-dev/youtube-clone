@@ -1,0 +1,20 @@
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+}
+
+.title {
+  font-size: var(--font-large);
+  font-weight: var(--font-semi-bold);
+}
+
+.channel {
+  font-size: var(--font-medium);
+  font-weight: var(--font-semi-bold);
+}
+
+.detail {
+  font-size: var(--font-regular);
+}

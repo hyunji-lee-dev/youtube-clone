@@ -1,0 +1,13 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+ul.side {
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 30%;
+  margin: 0;
+}

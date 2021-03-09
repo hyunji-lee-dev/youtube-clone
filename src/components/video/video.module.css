@@ -1,0 +1,37 @@
+li {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 280px;
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: var(--size-border-radius);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+  transition: all var(--animation-duration) ease-in;
+}
+
+li:hover {
+  transform: scale(1.01);
+  background-color: var(--color-light-grey);
+}
+
+li.side {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+}
+
+.thumbnailSide {
+  flex-basis: 40%;
+  margin-right: 0.5rem;
+}
+
+.descriptionSide {
+  flex-basis: 60%;
+}
+
+.channel {
+  color: var(--color-dark-grey);
+}
