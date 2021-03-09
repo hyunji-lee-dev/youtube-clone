@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './header.module.css';
 
-const Header = props => {
+const Header = ({ onSubmit }) => {
+  const inputRef = useRef();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const inputValue = inputRef.current.value;
+    onSubmit(inputValue);
+  };
+
   return (
     <header>
       <a href="http://localhost:3000/" className={styles.logo}>
         <img src="images/logo.png" alt="logo" className={styles.logoImg} />
         <span>YouTube</span>
       </a>
-      <form className={styles.search}>
+      <form className={styles.search} onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           type="text"
           className={styles.searchInput}
           placeholder="Search"

@@ -4,7 +4,7 @@ li {
   width: 280px;
   height: 280px;
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: var(--size-border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
@@ -23,15 +23,35 @@ li.side {
   height: fit-content;
 }
 
-.thumbnailSide {
-  flex-basis: 40%;
-  margin-right: 0.5rem;
+.thumbnail {
+  flex-basis: 48%;
 }
 
-.descriptionSide {
-  flex-basis: 60%;
+.thumbnailImg {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  width: 100%;
 }
 
 .channel {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  width: 100%;
   color: var(--color-dark-grey);
 }

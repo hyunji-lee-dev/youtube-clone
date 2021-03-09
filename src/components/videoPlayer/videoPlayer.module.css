@@ -5,6 +5,19 @@ section {
   padding: 1rem;
 }
 
+.playerWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+#ytPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .title {
   font-size: var(--font-large);
   font-weight: var(--font-semi-bold);
@@ -15,6 +28,7 @@ section {
   font-weight: var(--font-semi-bold);
 }
 
-.detail {
+.description {
   font-size: var(--font-regular);
+  white-space: pre-wrap;
 }
