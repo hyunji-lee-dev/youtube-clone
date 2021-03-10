@@ -10,12 +10,11 @@ const VideoList = ({ videos, onSelect, toBeSide }) => {
   return (
     <ul className={ulClassName}>
       {videos.map(video => {
-        const id = video.id.videoId || video.id;
         return (
           !video.selected && (
             <Video
-              key={id}
-              id={id}
+              key={video.id}
+              id={video.id}
               snippet={video.snippet}
               onSelect={onSelect}
               toBeSide={toBeSide}

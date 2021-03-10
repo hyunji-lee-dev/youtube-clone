@@ -21,7 +21,14 @@ function App() {
 
     fetch(url, requestOptions)
       .then(response => response.json())
-      .then(json => setVideos(json.items))
+      .then(json => {
+        if (!url.includes('search')) {
+          return json.items;
+        } else {
+          return json.items.map(item => ({ ...item, id: item.id.videoId }));
+        }
+      })
+      .then(items => setVideos(items))
       .catch(console.error);
   }
 
@@ -34,7 +41,7 @@ function App() {
     id =>
       setVideos(videos =>
         videos.map(video => {
-          if (video.id.videoId === id || video.id === id) {
+          if (video.id === id) {
             return { ...video, selected: true };
           } else if (video.selected) {
             return { ...video, selected: false };
@@ -53,10 +60,7 @@ function App() {
       <Header onSubmit={onSubmit} />
       <main className={styles.main}>
         {selectedVideo && (
-          <VideoPlayer
-            id={selectedVideo.id.videoId || selectedVideo.id}
-            snippet={selectedVideo.snippet}
-          />
+          <VideoPlayer id={selectedVideo.id} snippet={selectedVideo.snippet} />
         )}
         <VideoList
           videos={videos}
