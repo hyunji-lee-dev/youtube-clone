@@ -1,3 +1,47 @@
+:root {
+  /* Color */
+  --color-black: black;
+  --color-dark-grey: darkgrey;
+  --color-grey: lightgrey;
+  --color-light-grey: whitesmoke;
+
+  /* Font size */
+  --font-large: 2rem;
+  --font-medium: 1.5rem;
+  --font-regular: 1rem;
+  --font-small: 0.9rem;
+
+  /* Font weight */
+  --font-bold: 700;
+  --font-semi-bold: 600;
+
+  /* Size */
+  --size-border-radius: 4px;
+
+  /* Animation duration */
+  --animation-duration: 300ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +54,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media screen and (max-width: 48rem) {
+  :root {
+    --font-large: 1.5rem;
+    --font-medium: 1.25rem;
+  }
 }

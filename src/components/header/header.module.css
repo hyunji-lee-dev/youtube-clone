@@ -1,4 +1,8 @@
-header {
+:root {
+  --size-logo: 2rem;
+}
+
+.header {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem;
@@ -15,8 +19,8 @@ header {
 
 .logoImg {
   margin-right: 0.375rem;
-  width: 2rem;
-  height: 2rem;
+  width: var(--size-logo);
+  height: var(--size-logo);
 }
 
 .search {
@@ -47,4 +51,10 @@ header {
 
 .btnImg {
   height: 100%;
+}
+
+@media screen and (max-width: 48rem) {
+  :root {
+    --size-logo: 1.75rem;
+  }
 }

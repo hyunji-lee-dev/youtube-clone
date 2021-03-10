@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import './app.css';
+import styles from './app.module.css';
 import Header from './components/header/header';
 import VideoPlayer from './components/videoPlayer/videoPlayer';
 import VideoList from './components/videoList/videoList';
@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <Header onSubmit={onSubmit} />
-      <main>
+      <main className={styles.main}>
         {selectedVideo && (
           <VideoPlayer
             id={selectedVideo.id.videoId || selectedVideo.id}

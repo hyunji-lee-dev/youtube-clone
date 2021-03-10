@@ -3,10 +3,12 @@ import Video from '../video/video';
 import styles from './videoList.module.css';
 
 const VideoList = ({ videos, onSelect, toBeSide }) => {
-  const className = toBeSide ? styles.side : undefined;
+  const ulClassName = !toBeSide
+    ? styles.videoList
+    : `${styles.videoList} ${styles['videoList--side']}`;
 
   return (
-    <ul className={className}>
+    <ul className={ulClassName}>
       {videos.map(video => {
         const id = video.id.videoId || video.id;
         return (

@@ -1,13 +1,25 @@
-ul {
+.videoList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem auto;
 }
 
-ul.side {
+.videoList.videoList--side {
   flex-direction: column;
   justify-content: flex-start;
-  width: 30%;
+  width: 40%;
+  padding: 0.5rem;
   margin: 0;
+}
+
+@media screen and (max-width: 48rem) {
+  .videoList {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .videoList.videoList--side {
+    padding: 1rem;
+    width: 100%;
+  }
 }

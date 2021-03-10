@@ -7,7 +7,9 @@ const Video = memo(({ snippet, id, onSelect, toBeSide }) => {
     onSelect(id);
   };
 
-  const liClassName = toBeSide ? styles.side : undefined;
+  const liClassName = !toBeSide
+    ? styles.video
+    : `${styles.video} ${styles['video--side']}`;
 
   return (
     <li id={id} onClick={handleClick} className={liClassName}>

@@ -11,7 +11,7 @@ const Header = memo(({ onSubmit }) => {
   };
 
   return (
-    <header>
+    <header className={styles.header}>
       <a href="http://localhost:3000/" className={styles.logo}>
         <img src="images/logo.png" alt="logo" className={styles.logoImg} />
         <span>YouTube</span>

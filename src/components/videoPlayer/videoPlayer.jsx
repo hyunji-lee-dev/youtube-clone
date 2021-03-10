@@ -3,7 +3,7 @@ import styles from './videoPlayer.module.css';
 
 const VideoPlayer = ({ id, snippet }) => {
   return (
-    <section>
+    <section className={styles.videoPlayer}>
       <div className={styles.playerWrapper}>
         <iframe
           id={styles.ytPlayer}

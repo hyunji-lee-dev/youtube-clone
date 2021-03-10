@@ -1,4 +1,4 @@
-li {
+.video {
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -11,16 +11,17 @@ li {
   transition: all var(--animation-duration) ease-in;
 }
 
-li:hover {
+.video:hover {
   transform: scale(1.01);
   background-color: var(--color-light-grey);
 }
 
-li.side {
+.video.video--side {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: fit-content;
+  height: unset;
+  margin: 0.5rem 0;
 }
 
 .thumbnail {
@@ -54,4 +55,15 @@ li.side {
   overflow: hidden;
   width: 100%;
   color: var(--color-dark-grey);
+}
+
+@media screen and (max-width: 48rem) {
+  .video {
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: unset;
+    margin: 0.5rem 0;
+  }
 }
