@@ -1,12 +1,11 @@
-import React, { useRef } from 'react';
+import React, { createRef, memo } from 'react';
 import styles from './header.module.css';
 
-const Header = ({ onSubmit }) => {
-  const inputRef = useRef();
+const Header = memo(({ onSubmit }) => {
+  const inputRef = createRef();
 
   const handleSubmit = e => {
     e.preventDefault();
-
     const inputValue = inputRef.current.value;
     onSubmit(inputValue);
   };
@@ -34,6 +33,6 @@ const Header = ({ onSubmit }) => {
       </form>
     </header>
   );
-};
+});
 
 export default Header;
