@@ -4,38 +4,23 @@ import Header from './components/header/header';
 import VideoPlayer from './components/videoPlayer/videoPlayer';
 import VideoList from './components/videoList/videoList';
 
-function App() {
+function App({ youtube }) {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    const url =
-      'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&regionCode=US&key=AIzaSyBqo7QpWz1NEVymWe2a2SfQ1_Hzk1veklA';
-    fetchVideos(url);
-  }, []);
+    youtube
+      .mostPopular() //
+      .then(setVideos);
+  }, [youtube]);
 
-  function fetchVideos(url) {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-    };
-
-    fetch(url, requestOptions)
-      .then(response => response.json())
-      .then(json => {
-        if (!url.includes('search')) {
-          return json.items;
-        } else {
-          return json.items.map(item => ({ ...item, id: item.id.videoId }));
-        }
-      })
-      .then(items => setVideos(items))
-      .catch(console.error);
-  }
-
-  const onSubmit = useCallback(inputValue => {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${inputValue}&regionCode=US&type=video&key=AIzaSyBqo7QpWz1NEVymWe2a2SfQ1_Hzk1veklA`;
-    fetchVideos(url);
-  }, []);
+  const onSubmit = useCallback(
+    inputValue => {
+      youtube
+        .search(inputValue) //
+        .then(setVideos);
+    },
+    [youtube]
+  );
 
   const onSelect = useCallback(
     id =>
