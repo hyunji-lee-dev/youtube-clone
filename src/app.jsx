@@ -6,6 +6,7 @@ import VideoList from './components/videoList/videoList';
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   useEffect(() => {
     youtube
@@ -17,28 +18,15 @@ function App({ youtube }) {
     inputValue => {
       youtube
         .search(inputValue) //
-        .then(setVideos);
+        .then(videos => {
+          setVideos(videos);
+          setSelectedVideo(null);
+        });
     },
     [youtube]
   );
 
-  const onSelect = useCallback(
-    id =>
-      setVideos(videos =>
-        videos.map(video => {
-          if (video.id === id) {
-            return { ...video, selected: true };
-          } else if (video.selected) {
-            return { ...video, selected: false };
-          } else {
-            return video;
-          }
-        })
-      ),
-    []
-  );
-
-  const selectedVideo = videos.filter(video => video.selected)[0];
+  const onSelect = useCallback(setSelectedVideo, []);
 
   return (
     <>
@@ -49,8 +37,9 @@ function App({ youtube }) {
         )}
         <VideoList
           videos={videos}
+          selectedVideo={selectedVideo}
           onSelect={onSelect}
-          toBeSide={Boolean(selectedVideo)}
+          layout={selectedVideo ? 'side' : 'center'}
         />
       </main>
     </>

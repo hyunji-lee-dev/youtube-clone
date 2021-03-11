@@ -1,9 +1,5 @@
 .video {
   display: flex;
-  flex-direction: column;
-  width: 280px;
-  height: 280px;
-  margin: 0.5rem;
   padding: 0.5rem;
   border-radius: var(--size-border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -16,7 +12,14 @@
   background-color: var(--color-light-grey);
 }
 
-.video.video--side {
+.video.center {
+  flex-direction: column;
+  width: 280px;
+  height: 280px;
+  margin: 0.5rem;
+}
+
+.video.side {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
@@ -58,8 +61,7 @@
 }
 
 @media screen and (max-width: 48rem) {
-  .video {
-    flex-grow: 1;
+  .video.center {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
