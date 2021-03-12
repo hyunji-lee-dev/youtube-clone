@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import styles from './video.module.css';
 
+const decode = require('unescape');
+
 const Video = memo(({ video, video: { snippet }, onSelect, layout }) => (
   <li
     className={`${styles.video} ${styles[layout]}`}
@@ -15,7 +17,7 @@ const Video = memo(({ video, video: { snippet }, onSelect, layout }) => (
     </div>
     <div className={styles.info}>
       <span className={styles.title} title={snippet.title}>
-        {snippet.title}
+        {decode(snippet.title)}
       </span>
       <span className={styles.channel} title={snippet.channelTitle}>
         {snippet.channelTitle}
