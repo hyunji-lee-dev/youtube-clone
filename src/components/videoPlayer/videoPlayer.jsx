@@ -7,10 +7,11 @@ const VideoPlayer = ({ id, snippet }) => (
       <iframe
         id={styles.ytPlayer}
         type="text/html"
-        src={`https://www.youtube.com/embed/${id}`}
+        title={snippet.title}
+        src={`https://www.youtube.com/embed/${id}?autoplay=1&modestbranding=1`}
+        allow="autoplay"
         frameBorder="0"
         allowFullScreen
-        title={snippet.title}
       ></iframe>
     </div>
     <h1 className={styles.title}>{snippet.title}</h1>
