@@ -21,12 +21,16 @@ function App({ youtube }) {
         .then(videos => {
           setVideos(videos);
           setSelectedVideo(null);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     },
     [youtube]
   );
 
-  const onSelect = useCallback(setSelectedVideo, []);
+  const onSelect = useCallback(video => {
+    setSelectedVideo(video);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <>
