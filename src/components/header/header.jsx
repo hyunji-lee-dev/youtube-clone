@@ -13,7 +13,10 @@ const Header = memo(({ onSubmit }) => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a href="http://localhost:3000/" className={styles.logo}>
+        <a
+          href="https://hyunji-lee-youtube-clone.netlify.app"
+          className={styles.logo}
+        >
           <img src="images/logo.png" alt="logo" className={styles.logoImg} />
           <span>YouTube</span>
         </a>
