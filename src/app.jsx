@@ -27,10 +27,23 @@ function App({ youtube }) {
     [youtube]
   );
 
-  const onSelect = useCallback(video => {
-    setSelectedVideo(video);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  const onSelect = useCallback(
+    video => {
+      // selectedVideo가 searchResult일 경우 full description을 먼저 받음
+      if (video.kind === 'youtube#searchResult') {
+        youtube
+          .videoById(video.id) //
+          .then(video => {
+            setSelectedVideo(video);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+      } else {
+        setSelectedVideo(video);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    },
+    [youtube]
+  );
 
   return (
     <>

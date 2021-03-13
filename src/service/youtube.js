@@ -27,6 +27,17 @@ class Youtube {
     });
     return response.data.items.map(item => ({ ...item, id: item.id.videoId }));
   }
+
+  async videoById(id) {
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        id: id,
+        regionCode: 'US',
+      },
+    });
+    return response.data.items[0];
+  }
 }
 
 export default Youtube;

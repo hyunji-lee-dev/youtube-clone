@@ -6,7 +6,8 @@ const VideoList = ({ videos, selectedVideo, onSelect, layout }) => (
   <ul className={`${styles.videoList} ${styles[layout]}`}>
     {videos.map(video => {
       return (
-        video !== selectedVideo && (
+        // selectedVideo가 아닐 때만 render
+        (selectedVideo && selectedVideo.id) !== video.id && (
           <Video
             key={video.id}
             video={video}
